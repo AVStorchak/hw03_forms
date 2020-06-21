@@ -16,11 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from users.views import new_post
-
 urlpatterns = [
     path("", include("posts.urls")),
-    path("new/", new_post, name="new_post"),
     path("auth/", include("users.urls")),
     path("auth/", include("django.contrib.auth.urls")),
     path("admin/", admin.site.urls),

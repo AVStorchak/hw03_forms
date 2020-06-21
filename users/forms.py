@@ -20,8 +20,3 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea)
     sender = forms.EmailField()
     cc_myself = forms.BooleanField(required=False)
-
-
-class PostForm(forms.Form):
-    text = forms.CharField(widget=forms.Textarea)
-    group = forms.ModelChoiceField(queryset=Group.objects.all(), required=False)

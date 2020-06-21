@@ -3,7 +3,8 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 from posts.models import Post
-from .forms import CreationForm, ContactForm, PostForm
+from posts.forms import PostForm
+from .forms import CreationForm, ContactForm
 
 
 class SignUp(CreateView):
