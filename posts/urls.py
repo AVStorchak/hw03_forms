@@ -1,7 +1,7 @@
 from django.urls import path
 
 from . import views
-from users.views import new_post
+from .views import new_post
 
 urlpatterns = [
     path("", views.index, name="index"),

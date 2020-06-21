@@ -2,8 +2,6 @@ from django.shortcuts import redirect, render
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
-from posts.models import Post
-from posts.forms import PostForm
 from .forms import CreationForm, ContactForm
 
 
@@ -21,18 +19,3 @@ def user_contact(request):
         return render(request, 'contact.html', {'form': form})
     form = ContactForm()
     return render(request, 'contact.html', {'form': form})
-
-
-def new_post(request):
-    if request.method == 'POST':
-        user = request.user
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = Post.objects.create(author=user,
-                                       text=form.cleaned_data['text'],
-                                       group=form.cleaned_data['group'])
-            post.save()
-            return redirect('/')
-
-    form = PostForm()
-    return render(request, "new_post.html", {'form': form})
